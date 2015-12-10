@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-3.1.xsd">
+    <cache:annotation-driven/>
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="default"/>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="boxCache"/>
+            </set>
+        </property>
+    </bean>
+	<bean id="BookBoxSrvProxy" class="edu.hljcu.service.BookBoxSrvImpl">
+		<property name="studentsDAO">
+			<ref local="StudentsDAOProxy"/>
+		</property>
+		<property name="adminOperDAO">
+			<ref local="AdminOperDAOProxy"/>
+		</property>
+		<property name="bookInfoDAO">
+			<ref local="BookInfoDAOProxy"/>
+		</property>
+		<property name="boxDAO">
+			<ref local="BoxDAOProxy"/>
+		</property>
+		<property name="floorCateDAO">
+			<ref local="FloorCateDAOProxy"/>
+		</property>
+		<property name="rowCateDAO">
+			<ref local="RowCateDAOProxy"/>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>/WEB-INF/hibernate.cfg.xml</value>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.beans.factory.annotation.AnnotationBeanWiringInfoResolver"/>
+<!-- 用户登陆模块开始 -->
+	<bean name="login"	class="edu.hljcu.action.LoginAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+<!-- 用户登陆模块结束 -->
+<!-- 后台管理模块开始 -->
+	<bean name="loginBack"	class="edu.hljcu.action.LoginBackAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="logoutBack"	class="edu.hljcu.action.LogoutBackAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="menuAuthority"	class="edu.hljcu.action.MenuAuthorityAction" 	 >
+		<property name="bookBoxSrv">
+			<ref bean="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showAdmin"	class="edu.hljcu.action.ShowAdminAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showPrice"	class="edu.hljcu.action.ShowPriceAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showAdminById"	class="edu.hljcu.action.ShowAdminByIdAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="editAdminName"	class="edu.hljcu.action.EditAdminNameAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="editAdminPsw"	class="edu.hljcu.action.EditAdminPswAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="editPrice"	class="edu.hljcu.action.EditPriceAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="editMaxBoxCount"	class="edu.hljcu.action.EditMaxBoxCountAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="payBoxManage"	class="edu.hljcu.action.PayBoxManageAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showFloorCateManage"	class="edu.hljcu.action.ShowFloorCateManageAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="addFloorCate"	class="edu.hljcu.action.AddFloorCateAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="deleteFloorCate"	class="edu.hljcu.action.DeleteFloorCateAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showFloorCateById"	class="edu.hljcu.action.ShowFloorCateByIdAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="editFloorCate"	class="edu.hljcu.action.EditFloorCateAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showRowCateManage"	class="edu.hljcu.action.ShowRowCateManageAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="addRowCate"	class="edu.hljcu.action.AddRowCateAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="deleteRowCate"	class="edu.hljcu.action.DeleteRowCateAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showRowCateById"	class="edu.hljcu.action.ShowRowCateByIdAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="editRowCate"	class="edu.hljcu.action.EditRowCateAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showBoxManage"	class="edu.hljcu.action.ShowBoxManageAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="deleteBox"	class="edu.hljcu.action.DeleteBoxAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showBoxById"	class="edu.hljcu.action.ShowBoxByIdAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="editBox"	class="edu.hljcu.action.EditBoxAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="addBox"	class="edu.hljcu.action.AddBoxAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="priceManage"	class="edu.hljcu.action.PriceManageAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showLeftBox"	class="edu.hljcu.action.ShowLeftBoxAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="listLeftBox"	class="edu.hljcu.action.ListLeftBoxAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="showBookInfo"	class="edu.hljcu.action.ShowBookInfoAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+	<bean name="editStudInfo"	class="edu.hljcu.action.EditStudInfoAction" >
+		<property name="bookBoxSrv">
+			<ref local="BookBoxSrvProxy" />
+		</property>
+	</bean>
+<!-- 后台管理模块结束 -->
+<!-- 服务类开始 -->
+
+
+
+<!-- 服务类结束 -->
+
+
+
+<!-- 用户表实体类代理开始 -->
+	<bean id="StudentsDAOProxy" 	class="edu.hljcu.hibernate.all.StudentsDAOImpl"><!-- 此处为表名+DAO -->
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="AdminOperDAOProxy" 	class="edu.hljcu.hibernate.all.AdminOperDAOImpl"><!-- 此处为表名+DAO -->
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="BookInfoDAOProxy" 	class="edu.hljcu.hibernate.all.BookInfoDAOImpl"><!-- 此处为表名+DAO -->
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="BoxDAOProxy" 	class="edu.hljcu.hibernate.all.BoxDAOImpl"><!-- 此处为表名+DAO -->
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="FloorCateDAOProxy" 	class="edu.hljcu.hibernate.all.FloorCateDAOImpl"><!-- 此处为表名+DAO -->
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="RowCateDAOProxy" 	class="edu.hljcu.hibernate.all.RowCateDAOImpl"><!-- 此处为表名+DAO -->
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+<!-- 用户表实体类代理结束 -->
+
+<!-- 公共部分开始 -->
+	<bean id="transactionManager"           class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+          <property name="sessionFactory">
+              <ref bean="sessionFactory"/>
+          </property>
+    </bean>
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+         <property name="transactionManager" ref="transactionManager"/>
+         <property name="transactionAttributes">
+             <props>
+                 <prop key="create*">PROPAGATION_REQUIRED,-Exception</prop>
+				 <prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>
+			     <prop key="delete*">PROPAGATION_REQUIRED,-Exception</prop>
+				 <prop key="save*">PROPAGATION_REQUIRED,-Exception</prop>
+				 <prop key="book*">PROPAGATION_REQUIRED,-Exception</prop>
+				 <prop key="setBook*">PROPAGATION_REQUIRED,-Exception</prop>
+				 <prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
+                 <prop key="edit*">PROPAGATION_REQUIRED,-Exception</prop>
+                 <prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+             </props>
+         </property>
+     </bean>
+     <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+             <property name="beanNames">
+                 <value>*SrvProxy</value>
+             </property>
+             <property name="interceptorNames">
+                     <list>
+                             <value>transactionInterceptor</value>
+                             <!--
+                             此处增加新的Interceptor
+                             -->
+                      </list>
+              </property>
+      </bean>
+
+      <bean class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+        <property name="transactionInterceptor" ref="transactionInterceptor"/>
+      </bean>
+
+
+<!-- 公共部分结束 -->
+</beans>

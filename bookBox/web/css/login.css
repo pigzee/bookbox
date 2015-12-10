@@ -1,0 +1,52 @@
+BODY{
+PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000000; BORDER-TOP-STYLE: none; PADDING-TOP: 0px; FONT-FAMILY: "Times New Roman", Times, serif,"宋体"; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; LIST-STYLE-TYPE: none; BORDER-BOTTOM-STYLE: none;TEXT-ALIGN: center 
+}
+.STYLE15 {
+   font-family: "华文行楷";
+	font-size: 24px; font-weight:400; color:#005B5B; 
+	}
+#container {
+	MARGIN: 0px auto; WIDTH: 800px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
+}
+#top_1{
+       MARGIN: 2px auto; WIDTH: 800px; height:165px; float:left; TEXT-ALIGN: center;background:url(../image/5_zlogo.jpg);
+}
+#top_1 .biaoti{
+       MARGIN: 55px 100px 0 0; WIDTH: 300px; height:36px; float:right; color:#C41530; text-align:right;font-family: "华文行楷";
+	font-size: 38px; font-weight:700 
+}
+#top_2{
+       MARGIN: 0px auto; WIDTH: 798px; height:600px; float:left; TEXT-ALIGN: left; border-right:1px solid #c3cecd; border-bottom:1px solid #c3cecd;border-left:1px solid #c3cecd; border-top:1px solid #c3cecd;    
+}
+#top_2 .tubiao{
+       MARGIN: 40px 0 0 100px; WIDTH: 400px; height:60px; float:left; TEXT-ALIGN: left;
+}
+#top_2 .tubiao .left{
+       MARGIN: 0px auto; WIDTH: 58px; height:60px; float:left; TEXT-ALIGN: left;background:url(../image/5_guanliyuan.jpg);
+}
+#top_2 .tubiao .wenzi{
+       MARGIN: 20px 0 0 10px; WIDTH: 250px; height:24px; float:left; TEXT-ALIGN: left; clear:right;font-family: "华文行楷";
+	font-size: 24px; font-weight:100; color:#000000; 
+}
+
+#top_2 .denglukuang{
+       MARGIN: 10px 0 0 100px; WIDTH: 400px; height:180px; float:left; TEXT-ALIGN: left;border-top:1px solid #008080; border-left:1px solid #008080;border-right:1px solid #008080;border-bottom:1px solid #008080;
+}
+#top_2 .denglukuang .hangup{
+       MARGIN: 0px auto; WIDTH: 390px; height:10px; float:left; TEXT-ALIGN: center;
+}
+#top_2 .denglukuang .left{ MARGIN: 0px auto; padding-left:3px;WIDTH: 75px; height:24px;TEXT-ALIGN: left; float:left;color:#2E2E2E;font-weight:normal;font-size: 14px;
+}
+
+#top_2 .denglukuang .right{ MARGIN: 0px auto;WIDTH: 300px; height:24px;TEXT-ALIGN: left; float:left;
+}
+#top_2 .denglukuang .right1{ MARGIN: 0px auto;WIDTH: 90px; height:24px;TEXT-ALIGN: left; float:left;
+}
+#top_2 .denglukuang .right2{ MARGIN: 0px auto;WIDTH: 150px; height:24px;TEXT-ALIGN: left; float:left;
+}
+#top_2 .denglukuang .hang{
+       MARGIN: 0px auto; WIDTH: 300px; height:20px; float:left; TEXT-ALIGN: center;
+}
+#top_2 .beizhu{
+       MARGIN: 20px 0 0 100px; WIDTH: 400px; height:100px; float:left; TEXT-ALIGN:left;
+}

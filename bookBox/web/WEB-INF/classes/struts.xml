@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+<constant name="struts.multipart.maxSize" value="20000000000" />
+
+	<constant name="struts.i18n.encoding" value="GBK" />
+	<constant name="struts.objectFactory" value="spring" />
+    
+    <constant name="struts.custom.i18n.resources" value="globalMessages"/>
+    
+    
+	<package name="struts2" extends="struts-default" >	
+	
+        
+	<!-- 学生登陆模块开始 -->
+		<action name="login"   class="login" >
+			<result name="conTime" >/conTime.jsp</result> 
+			<result name="hasBook" >/hasBook.jsp</result>
+			<result name="conBook" >/conBook.jsp</result>
+			<result name="over" >/bookOver.jsp</result>
+            <result name="success" type="chain">showBookInfo</result> 
+            <result name="failure" >/login.jsp</result> 
+        </action> 
+	<!-- 学生登陆模块开始 -->
+	<!-- 后台管理模块开始 -->
+		<action name="loginBack"   class="loginBack" >
+			<result name="failure">/back_login.jsp</result>
+			<result name="success">/index.jsp</result>
+        </action> 
+        <action name="logoutBack"   class="logoutBack" >
+			<result name="failure">/back_login.jsp</result>
+			<result name="success">/back_login.jsp</result>
+        </action> 
+        <action name="menuAuthority"   class="menuAuthority" >
+			<result name="failure">/return.jsp</result>
+			<result name="success">/menuAuthority.jsp</result>
+        </action>
+        <action name="showAdmin"   class="showAdmin" >
+        	<result name="maxBoxCount" >/manageMaxBoxCount.jsp</result>
+            <result name="admin" >/showAdmin.jsp</result> 
+            <result name="conTime" >/manageConTime.jsp</result> 
+            <result name="bookTime" >/manageBookTime.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="showPrice"   class="showPrice" >
+            <result name="success">/showPrice.jsp</result> 
+            <result name="fail" type="chain">showAdminById</result> 
+            <result name="failure">/return.jsp</result> 
+        </action>
+        <action name="showAdminById"   class="showAdminById" >
+            <result name="editName" >/editAdminName.jsp</result> 
+            <result name="editPsw" >/editAdminPsw.jsp</result>
+            <result name="editPrice" >/editPrice.jsp</result>
+            <result name="editMaxBoxCount" >/editMaxBoxCount.jsp</result>
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="editAdminName"   class="editAdminName" >
+            <result name="success" type="chain">showAdmin</result> 
+            <result name="failure" >/showAdmin.jsp</result> 
+        </action>
+        <action name="editAdminPsw"   class="editAdminPsw" >
+            <result name="success" type="chain">showAdmin</result> 
+            <result name="fail" type="chain">showAdminById</result> 
+            <result name="failure">/return.jsp</result> 
+        </action>
+        <action name="editPrice"   class="editPrice" >
+            <result name="success" type="chain">showPrice</result> 
+            <result name="fail" type="chain">showAdminById</result> 
+            <result name="failure">/return.jsp</result> 
+        </action>
+        <action name="editMaxBoxCount"   class="editMaxBoxCount" >
+            <result name="numError">/editMaxBoxCount.jsp</result> 
+            <result name="success" type="chain">showAdmin</result> 
+            <result name="failure">/return.jsp</result> 
+        </action>
+        <action name="payBoxManage"   class="payBoxManage" >
+            <result name="success" >/payBox.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="showFloorCateManage"   class="showFloorCateManage" >
+            <result name="success" >/manageFloorCate.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 	
+  		<action name="addFloorCate"   class="addFloorCate" >
+            <result name="success" type="chain">showFloorCateManage</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="showFloorCateById"   class="showFloorCateById" >
+            <result name="success" >/editFloorCate.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="editFloorCate"   class="editFloorCate" >
+            <result name="success" type="chain">showFloorCateManage</result> 
+            <result name="editAgain">/editFloorCate.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="deleteFloorCate"   class="deleteFloorCate" >
+            <result name="success" type="chain">showFloorCateManage</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action>
+         <action name="showRowCateManage"   class="showRowCateManage" >
+            <result name="success" >/manageRowCate.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="addRowCate"   class="addRowCate" >
+            <result name="success" type="chain">showRowCateManage</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="showRowCateById"   class="showRowCateById" >
+            <result name="success" >/editRowCate.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="editRowCate"   class="editRowCate" >
+            <result name="success" type="chain">showRowCateManage</result> 
+            <result name="editAgain">/editRowCate.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="deleteRowCate"   class="deleteRowCate" >
+            <result name="success" type="chain">showRowCateManage</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action>
+        <action name="showBoxManage"   class="showBoxManage" >
+            <result name="success" >/manageBox.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action>  
+        <action name="deleteBox"   class="deleteBox" >
+            <result name="success" type="chain">showBoxManage</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action>  
+        <action name="showBoxById"   class="showBoxById" >
+            <result name="success" >/editBox.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="editBox"   class="editBox" >
+            <result name="success" type="chain">showBoxManage</result> 
+            <result name="editAgain">/editBox.jsp</result>
+            <result name="failure" >/return.jsp</result> 
+        </action> 
+        <action name="addBox"   class="addBox" >
+            <result name="success" type="chain">showBoxManage</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action>
+        <action name="priceManage"   class="priceManage" >
+            <result name="success">/managePrice.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action>
+        <action name="showLeftBox"   class="showLeftBox" >
+            <result name="success">/showLeftBox.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action>
+        <action name="listLeftBox"   class="listLeftBox" >
+            <result name="success">/showLeftBox.jsp</result> 
+            <result name="failure" >/return.jsp</result> 
+        </action>
+        <action name="showBookInfo"   class="showBookInfo" >
+            <result name="success">/addStudInfo.jsp</result> 
+            <result name="failure" >/login.jsp</result> 
+        </action>
+        <action name="editStudInfo"   class="editStudInfo" >
+            <result name="success">/bookBox.jsp</result> 
+            <result name="failure" >/login.jsp</result> 
+        </action>
+    <!-- 后台管理模块结束 -->
+    </package>     
+</struts>

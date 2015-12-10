@@ -1,0 +1,91 @@
+/* CSS Document */
+
+/*====== common ======*/
+body {
+	background-color: #FFFFFF;
+	text-align: center;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+table,td,div {
+	font-size: 12px;
+	text-decoration: none;
+	line-height: 18px;
+	color: #5C5C5C;
+	background-color: #B1C3D9;
+}
+
+p {
+	font-size: 12px;
+	line-height: 18px;
+	padding: 0px;
+	color: #5C5C5C;
+	text-indent: 25px;
+}
+/*====== common ======*/
+
+
+A:link {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+A:visited {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+A:hover {
+	color: #E72800;
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+A:active {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+
+
+.big_name{
+    color: #00FFFF;
+	font-family:¿¬Ìå_GB2312;
+	font-size:40px;
+	font-weight:bold;
+	line-height:120%;
+}
+
+.big_english{
+    color:#993300;
+	font-size:14px;
+}
+
+#dateformat {
+	font:11px Arial, Helvetica, sans-serif;
+	color: #993300;
+	letter-spacing:.2em;
+	}
+	
+#dateformat a {
+	font:11px Arial, Helvetica, sans-serif;
+	color: #993300;
+	font-weight:bold;
+	letter-spacing:.1em;
+	text-decoration:none;
+	}
+	
+#dateformat a:hover {
+	color: #F4FFE4;
+	letter-spacing:.1em;
+	}
+/*====== bgi ======*/

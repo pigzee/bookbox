@@ -1,0 +1,118 @@
+/* CSS Document */
+/*====== common ======*/
+body {
+	text-align: center;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	background-color:#E7F1FF;
+	background-repeat: repeat-x;
+}
+body,table,td,div {
+	font-size: 12px;
+	text-decoration: none;
+	line-height: 18px;
+	color: #CCFFFF;
+}
+
+p {
+	font-size: 12px;
+	line-height: 18px;
+	padding: 0px;
+	color: #FF9900;
+	text-indent: 25px;
+}
+/*====== common ======*/
+
+
+/*====== link ======*/
+A:link {
+	color: #000066;
+	text-decoration: underline;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+A:visited {
+	color:#000066;
+	text-decoration: underline;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+A:hover {
+	color: #000066;
+	text-decoration: underline;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+A:active {
+	color: #000066;
+	text-decoration: underline;
+	font-size: 12px;
+	line-height: 18px;
+}
+/*====== link ======*/
+
+
+/*=======menu=========*/
+#warp {
+	MARGIN: 10px auto; WIDTH: 191px; HEIGHT: 500px
+}
+.menu_master {
+	PADDING-RIGHT: 10px;
+	PADDING-LEFT: 10px;
+	FONT-WEIGHT: bold;
+	MARGIN-BOTTOM: 1px;
+	PADDING-BOTTOM: 2px;
+	CURSOR: pointer;
+	COLOR: #000099;
+	PADDING-TOP: 5px;
+
+	background-image:url(/wuzhouPro/page/back/image/menu2.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	font-size: 12px;
+	height: 22px;
+	text-align: left;
+}
+.menu_master IMG {
+	VERTICAL-ALIGN: middle
+}
+.sub_menu {
+	DISPLAY: none;
+	text-align: left;
+}
+.sub_menu UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.sub_menu UL LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.sub_menu UL LI A {
+	PADDING-RIGHT: 6px;
+	DISPLAY: block;
+	PADDING-LEFT: 25px;
+	PADDING-BOTTOM: 1px;
+	PADDING-TOP: 4px;
+	HEIGHT: 16px;
+	TEXT-DECORATION: none;
+	background-color: #E7F1FF;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+/*=======menu=========*/
+/*=======menu=========
+.sub_menu1 {
+	text-align: left;
+	background-color:#FF0000;
+	font-size:12px;
+	color:#43A992;
+	PADDING-LEFT: 25px;
+	PADDING-BOTTOM: 5px;
+	PADDING-TOP: 6px;
+}*/
